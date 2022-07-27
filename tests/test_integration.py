@@ -6,20 +6,6 @@ polygon
 │   └── geth  (default)
 └── local  (default)
     └── test  (default)
-ethereum  (default)
-├── mainnet
-│   └── geth  (default)
-├── ropsten
-│   └── geth  (default)
-├── kovan
-│   └── geth  (default)
-├── rinkeby
-│   └── geth  (default)
-├── goerli
-│   └── geth  (default)
-└── local  (default)
-    ├── geth
-    └── test  (default)
 """.strip()
 
 
@@ -29,6 +15,9 @@ def assert_rich_text(actual: str, expected: str):
     appear at the end of each line. For easier testing, we remove those here.
     """
     actual = f"polygon{actual.split('polygon')[-1]}"
+    if "ethereum" in actual:
+        actual = actual.split("ethereum")[0]
+
     expected = expected.strip()
     lines = actual.split("\n")
     new_lines = []
