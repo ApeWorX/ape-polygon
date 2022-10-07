@@ -7,13 +7,13 @@ extras_require = {
         "pytest>=6.0",  # Core testing package
         "pytest-xdist",  # multi-process runner
         "pytest-cov",  # Coverage analyzer plugin
-        "hypothesis>=6.2.0,<7.0",  # Strategy-based fuzzer
+        "hypothesis>=6.2.0,<7",  # Strategy-based fuzzer
     ],
     "lint": [
-        "black>=22.6.0,<23.0",  # auto-formatter and linter
-        "mypy>=0.971,<1.0",  # Static type analyzer
-        "flake8>=4.0.1,<5.0",  # Style linter
-        "isort>=5.10.1,<6.0",  # Import sorting linter
+        "black>=22.6.0,<23",  # auto-formatter and linter
+        "mypy>=0.971,<1",  # Static type analyzer
+        "flake8>=4.0.1,<5",  # Style linter
+        "isort>=5.10.1,<6",  # Import sorting linter
     ],
     "release": [  # `release` GitHub Action job uses this
         "setuptools",  # Installation tool
@@ -53,9 +53,9 @@ setup(
     url="https://github.com/ApeWorX/ape-polygon",
     include_package_data=True,
     install_requires=[
-        "eth-ape>=0.5.0,<0.6.0",
+        "eth-ape>=0.5.1,<0.6",
     ],
-    python_requires=">=3.8,<4",
+    python_requires=">=3.8,<3.11",
     extras_require=extras_require,
     py_modules=["ape_polygon"],
     license="Apache-2.0",
