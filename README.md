@@ -47,7 +47,7 @@ python3 setup.py install
 Installing this plugin adds support for the Polygon ecosystem:
 
 ```bash
-ape console --network polygon:opera
+ape console --network polygon:mainnet
 ```
 
 ## Development
