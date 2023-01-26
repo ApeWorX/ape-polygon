@@ -121,4 +121,6 @@ version.py
 .build/
 
 **/.DS_Store
-**/.swp
+*.swp
+*.swo
+
