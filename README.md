@@ -1,6 +1,6 @@
 # Quick Start
 
-Ecosystem Plugin for Polygon support in Ape
+Ecosystem Plugin for Polygon support in Ape.
 
 ## Dependencies
 
