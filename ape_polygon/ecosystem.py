@@ -3,6 +3,7 @@ from typing import Optional
 from ape.api.config import PluginConfig
 from ape.api.networks import LOCAL_NETWORK_NAME
 from ape_ethereum.ecosystem import Ethereum, NetworkConfig
+from ape.utils import DEFAULT_LOCAL_TRANSACTION_ACCEPTANCE_TIMEOUT
 
 NETWORKS = {
     # chain_id, network_id
@@ -19,9 +20,13 @@ def _create_network_config(
     )
 
 
-def _create_local_config(default_provider: Optional[str] = None) -> NetworkConfig:
+def _create_local_config(default_provider: Optional[str] = None, **kwargs) -> NetworkConfig:
     return _create_network_config(
-        required_confirmations=0, block_time=0, default_provider=default_provider
+        required_confirmations=0,
+        default_provider=default_provider,
+        transaction_acceptance_timeout=DEFAULT_LOCAL_TRANSACTION_ACCEPTANCE_TIMEOUT,
+        gas_limit="max",
+        **kwargs,
     )
 
 
