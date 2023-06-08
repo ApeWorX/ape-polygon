@@ -1,4 +1,4 @@
-from typing import Optional, cast
+from typing import cast
 
 from ape.api.config import PluginConfig
 from ape.api.networks import LOCAL_NETWORK_NAME
