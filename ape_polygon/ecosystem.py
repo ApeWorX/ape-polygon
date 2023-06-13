@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import cast
 
 from ape.api.config import PluginConfig
 from ape.api.networks import LOCAL_NETWORK_NAME
@@ -20,10 +20,10 @@ def _create_network_config(
     )
 
 
-def _create_local_config(default_provider: Optional[str] = None, **kwargs) -> NetworkConfig:
+def _create_local_config(**kwargs) -> NetworkConfig:
     return _create_network_config(
         required_confirmations=0,
-        default_provider=default_provider,
+        default_provider="test",
         transaction_acceptance_timeout=DEFAULT_LOCAL_TRANSACTION_ACCEPTANCE_TIMEOUT,
         gas_limit="max",
         **kwargs,
@@ -35,11 +35,11 @@ class PolygonConfig(PluginConfig):
     mainnet_fork: NetworkConfig = _create_local_config()
     mumbai: NetworkConfig = _create_network_config()
     mumbai_fork: NetworkConfig = _create_local_config()
-    local: NetworkConfig = NetworkConfig(default_provider="test")
+    local: NetworkConfig = _create_local_config()
     default_network: str = LOCAL_NETWORK_NAME
 
 
 class Polygon(Ethereum):
     @property
-    def config(self) -> PolygonConfig:  # type: ignore
-        return self.config_manager.get_config("polygon")  # type: ignore
+    def config(self) -> PolygonConfig:  # type: ignore[override]
+        return cast(PolygonConfig, self.config_manager.get_config("polygon"))
