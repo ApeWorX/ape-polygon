@@ -58,7 +58,6 @@ setup(
     include_package_data=True,
     install_requires=[
         "eth-ape>=0.6.0,<0.7",
-        "typing-extensions==4.5.0",  # Can remove once Pydantic patched and ape updated.
     ],
     python_requires=">=3.8,<4",
     extras_require=extras_require,
