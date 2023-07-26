@@ -40,6 +40,8 @@ class PolygonConfig(PluginConfig):
 
 
 class Polygon(Ethereum):
+    fee_token_symbol: str = "MATIC"
+
     @property
     def config(self) -> PolygonConfig:  # type: ignore[override]
         return cast(PolygonConfig, self.config_manager.get_config("polygon"))
