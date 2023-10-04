@@ -22,10 +22,11 @@ def _create_network_config(
 
 def _create_local_config(**kwargs) -> NetworkConfig:
     return _create_network_config(
-        required_confirmations=0,
-        default_provider="test",
-        transaction_acceptance_timeout=DEFAULT_LOCAL_TRANSACTION_ACCEPTANCE_TIMEOUT,
+        block_time=0,
+        default_provider=kwargs.pop("default_provider", None),
         gas_limit="max",
+        required_confirmations=0,
+        transaction_acceptance_timeout=DEFAULT_LOCAL_TRANSACTION_ACCEPTANCE_TIMEOUT,
         **kwargs,
     )
 
@@ -35,7 +36,7 @@ class PolygonConfig(PluginConfig):
     mainnet_fork: NetworkConfig = _create_local_config()
     mumbai: NetworkConfig = _create_network_config()
     mumbai_fork: NetworkConfig = _create_local_config()
-    local: NetworkConfig = _create_local_config()
+    local: NetworkConfig = _create_local_config(default_provider="test")
     default_network: str = LOCAL_NETWORK_NAME
 
 

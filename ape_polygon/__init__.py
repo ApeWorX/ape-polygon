@@ -31,6 +31,5 @@ def networks():
 def providers():
     for network_name in NETWORKS:
         yield "polygon", network_name, GethProvider
-        yield "polygon", f"{network_name}-fork", LocalProvider
 
     yield "polygon", LOCAL_NETWORK_NAME, LocalProvider
