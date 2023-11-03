@@ -28,7 +28,7 @@ def _create_local_config(**kwargs) -> NetworkConfig:
         gas_limit="max",
         required_confirmations=0,
         transaction_acceptance_timeout=DEFAULT_LOCAL_TRANSACTION_ACCEPTANCE_TIMEOUT,
-        cls=ForkedNetworkConfig if kwargs.get("use_fork", False) else NetworkConfig,
+        cls=ForkedNetworkConfig if kwargs.pop("use_fork", False) else NetworkConfig,
         **kwargs,
     )
 
