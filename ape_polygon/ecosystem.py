@@ -21,7 +21,7 @@ def _create_config(
     return cls(required_confirmations=required_confirmations, block_time=block_time, **kwargs)
 
 
-def _create_local_config(**kwargs) -> NetworkConfig:
+def _create_local_config(**kwargs):
     return _create_config(
         block_time=0,
         default_provider=kwargs.pop("default_provider", None),
