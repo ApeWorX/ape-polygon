@@ -1,6 +1,5 @@
 from ape import plugins
-from ape.api import NetworkAPI, create_network_type
-from ape.api.networks import LOCAL_NETWORK_NAME, ForkedNetworkAPI
+from ape.api.networks import LOCAL_NETWORK_NAME, ForkedNetworkAPI, NetworkAPI, create_network_type
 from ape_geth import GethProvider
 from ape_test import LocalProvider
 
