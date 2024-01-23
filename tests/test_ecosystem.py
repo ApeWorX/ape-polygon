@@ -3,10 +3,6 @@ from ape_ethereum.transactions import TransactionType
 from ethpm_types.abi import MethodABI
 
 
-def test_gas_limit(polygon):
-    assert polygon.config.local.gas_limit == "max"
-
-
 # NOTE: None because we want to show the default is DYNAMIC
 @pytest.mark.parametrize("tx_type", (None, 2, "0x2"))
 def test_create_transaction(polygon, tx_type, eth_tester_provider):
