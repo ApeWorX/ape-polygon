@@ -5,13 +5,13 @@ from click.testing import CliRunner
 EXPECTED_OUTPUT = """
 polygon
 ├── amoy
-│   └── geth  (default)
+│   └── node  (default)
 ├── local  (default)
 │   └── test  (default)
 ├── mainnet
-│   └── geth  (default)
+│   └── node  (default)
 └── mumbai
-    └── geth  (default)
+    └── node  (default)
 """.strip()
 
 
@@ -48,9 +48,9 @@ def assert_rich_text(actual: str, expected: str):
 
 def test_networks(runner, cli, polygon):
     # Do this in case local env changed it.
-    polygon.mainnet.set_default_provider("geth")
-    polygon.mumbai.set_default_provider("geth")
-    polygon.amoy.set_default_provider("geth")
+    polygon.mainnet.set_default_provider("node")
+    polygon.mumbai.set_default_provider("node")
+    polygon.amoy.set_default_provider("node")
 
-    result = runner.invoke(cli, ["networks", "list"])
+    result = runner.invoke(cli, ("networks", "list"))
     assert_rich_text(result.output, EXPECTED_OUTPUT)
