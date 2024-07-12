@@ -8,9 +8,7 @@ polygon
 │   └── node  (default)
 ├── local  (default)
 │   └── test  (default)
-├── mainnet
-│   └── node  (default)
-└── mumbai
+└── mainnet
     └── node  (default)
 """.strip()
 
@@ -49,7 +47,6 @@ def assert_rich_text(actual: str, expected: str):
 def test_networks(runner, cli, polygon):
     # Do this in case local env changed it.
     polygon.mainnet.set_default_provider("node")
-    polygon.mumbai.set_default_provider("node")
     polygon.amoy.set_default_provider("node")
 
     result = runner.invoke(cli, ("networks", "list"))
