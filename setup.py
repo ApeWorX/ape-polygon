@@ -62,6 +62,7 @@ setup(
     install_requires=[
         "eth-ape>=0.8.1,<0.9",
         "ethpm-types",  # Use same version as eth-ape
+        "pydantic>=2.8.2,<2.9",  # Bug in pydantic 2.9.1
     ],
     python_requires=">=3.9,<4",
     extras_require=extras_require,
