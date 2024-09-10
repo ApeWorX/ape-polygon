@@ -1,4 +1,4 @@
-from typing import ClassVar, Dict, Tuple, cast
+from typing import ClassVar, cast
 
 from ape_ethereum.ecosystem import (
     BaseEthereumConfig,
@@ -15,7 +15,7 @@ NETWORKS = {
 
 
 class PolygonConfig(BaseEthereumConfig):
-    NETWORKS: ClassVar[Dict[str, Tuple[int, int]]] = NETWORKS
+    NETWORKS: ClassVar[dict[str, tuple[int, int]]] = NETWORKS
     mainnet: NetworkConfig = create_network_config(block_time=2, required_confirmations=1)
     amoy: NetworkConfig = create_network_config(block_time=2, required_confirmations=1)
 
