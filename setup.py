@@ -63,7 +63,7 @@ setup(
         "eth-ape>=0.8.1,<0.9",
         "ethpm-types",  # Use same version as eth-ape
         "typing-inspect==0.8.0",  # To avoid Pydantic bug
-        "typing_extensions==4.5.0",  # To avoid Pydantic bug
+        "typing_extensions==4.8.0",  # To avoid Pydantic bug
     ],
     python_requires=">=3.9,<4",
     extras_require=extras_require,
