@@ -21,7 +21,7 @@ class PolygonConfig(BaseEthereumConfig):
 
 
 class Polygon(Ethereum):
-    fee_token_symbol: str = "MATIC"
+    fee_token_symbol: str = "POL"
 
     @property
     def config(self) -> PolygonConfig:  # type: ignore[override]
