@@ -1,23 +1,31 @@
 from ape import plugins
-from ape.api.networks import LOCAL_NETWORK_NAME, ForkedNetworkAPI, NetworkAPI, create_network_type
-from ape_node import Node
-from ape_test import LocalProvider
-
-from .ecosystem import NETWORKS, Polygon, PolygonConfig
 
 
 @plugins.register(plugins.Config)
 def config_class():
+    from ape_polygon.ecosystem import PolygonConfig
+
     return PolygonConfig
 
 
 @plugins.register(plugins.EcosystemPlugin)
 def ecosystems():
+    from ape_polygon.ecosystem import Polygon
+
     yield Polygon
 
 
 @plugins.register(plugins.NetworkPlugin)
 def networks():
+    from ape.api.networks import (
+        LOCAL_NETWORK_NAME,
+        ForkedNetworkAPI,
+        NetworkAPI,
+        create_network_type,
+    )
+
+    from ape_polygon.ecosystem import NETWORKS
+
     for network_name, network_params in NETWORKS.items():
         yield "polygon", network_name, create_network_type(*network_params)
         yield "polygon", f"{network_name}-fork", ForkedNetworkAPI
@@ -28,6 +36,12 @@ def networks():
 
 @plugins.register(plugins.ProviderPlugin)
 def providers():
+    from ape.api.networks import LOCAL_NETWORK_NAME
+    from ape_node import Node
+    from ape_test import LocalProvider
+
+    from ape_polygon.ecosystem import NETWORKS
+
     for network_name in NETWORKS:
         yield "polygon", network_name, Node
 
