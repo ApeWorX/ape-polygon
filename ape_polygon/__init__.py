@@ -46,3 +46,30 @@ def providers():
         yield "polygon", network_name, Node
 
     yield "polygon", LOCAL_NETWORK_NAME, LocalProvider
+
+
+def __getattr__(name: str):
+    if name == "NETWORKS":
+        from .ecosystem import NETWORKS
+
+        return NETWORKS
+
+    elif name == "Polygon":
+        from .ecosystem import Polygon
+
+        return Polygon
+
+    elif name == "PolygonConfig":
+        from .ecosystem import PolygonConfig
+
+        return PolygonConfig
+
+    else:
+        raise AttributeError(name)
+
+
+__all__ = [
+    "NETWORKS",
+    "Polygon",
+    "PolygonConfig",
+]
