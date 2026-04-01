@@ -54,18 +54,17 @@ def __getattr__(name: str):
 
         return NETWORKS
 
-    elif name == "Polygon":
+    if name == "Polygon":
         from .ecosystem import Polygon
 
         return Polygon
 
-    elif name == "PolygonConfig":
+    if name == "PolygonConfig":
         from .ecosystem import PolygonConfig
 
         return PolygonConfig
 
-    else:
-        raise AttributeError(name)
+    raise AttributeError(name)
 
 
 __all__ = [

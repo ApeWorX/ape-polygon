@@ -40,10 +40,10 @@ def test_create_transaction_type_2(polygon, tx_kwargs):
 
 @pytest.mark.parametrize(
     "tx_type",
-    (
+    [
         TransactionType.STATIC.value,
         TransactionType.DYNAMIC.value,
-    ),
+    ],
 )
 def test_encode_transaction(tx_type, polygon, eth_tester_provider):
     abi = MethodABI.model_validate(

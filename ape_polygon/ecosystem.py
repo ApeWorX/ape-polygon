@@ -25,4 +25,4 @@ class Polygon(Ethereum):
 
     @property
     def config(self) -> PolygonConfig:  # type: ignore[override]
-        return cast(PolygonConfig, self.config_manager.get_config("polygon"))
+        return cast("PolygonConfig", self.config_manager.get_config("polygon"))
