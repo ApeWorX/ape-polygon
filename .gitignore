@@ -124,3 +124,7 @@ version.py
 *.swp
 *.swo
 
+uv.lock
+
+# ruff
+.ruff_cache/
