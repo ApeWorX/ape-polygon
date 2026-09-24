@@ -7,15 +7,9 @@ To get started with working on the codebase, use the following steps prepare you
 git clone https://github.com/ApeWorX/ape-polygon.git
 cd ape-polygon
 
-# create and load a virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# install ape-polygon into the virtual environment
-python setup.py install
-
-# install the developer dependencies (-e is interactive mode)
-pip install -e .'[dev]'
+# install the package and developer dependency groups with uv
+# (https://docs.astral.sh/uv/)
+uv sync --group dev
 ```
 
 ## Pre-Commit Hooks
@@ -26,8 +20,7 @@ Use of `pre-commit` is not a requirement, but is highly recommended.
 Install `pre-commit` locally from the root folder:
 
 ```bash
-pip install pre-commit
-pre-commit install
+uv run pre-commit install
 ```
 
 Committing will now automatically run the local hooks and ensure that your commit passes all lint checks.
