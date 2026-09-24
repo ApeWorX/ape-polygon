@@ -54,7 +54,7 @@ def __getattr__(name: str):
 
         return NETWORKS
 
-    elif name == "Polygon":
+    if name == "Polygon":
         from .ecosystem import Polygon
 
         return Polygon
