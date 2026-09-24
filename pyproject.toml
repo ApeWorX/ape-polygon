@@ -28,7 +28,6 @@ requires-python = ">=3.10"
 dependencies = [
     "eth-ape>=0.8.1,<0.9",
     "ethpm-types",  # Use same version as eth-ape
-    "pydantic_settings>=2.4.0,<2.5",  # Bug in pydantic-settings
 ]
 dynamic = ["version"]
 
