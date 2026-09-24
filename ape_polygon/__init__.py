@@ -59,13 +59,12 @@ def __getattr__(name: str):
 
         return Polygon
 
-    elif name == "PolygonConfig":
+    if name == "PolygonConfig":
         from .ecosystem import PolygonConfig
 
         return PolygonConfig
 
-    else:
-        raise AttributeError(name)
+    raise AttributeError(name)
 
 
 __all__ = [
